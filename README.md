@@ -48,3 +48,7 @@ No truncated SVD, token dropping, block dropping, numerical low-rank approximati
 ## Rule
 
 Experiments do not test whether the identity is true. They test numerical realization or the hardware boundary of an already-proved exact form.
+
+## Reproducible reference checkpoint
+
+See [reference findings](analysis/REFERENCE_FINDINGS.md) for the pinned source SHA, raw run, numerical observations and remaining gates. Install the recorded environment and run `python experiments/verify_reference.py` from a clean worktree. No GPU performance claim is made.

@@ -1,0 +1,33 @@
+{
+  "source_sha": "a02307c0bcc0bf5f8942b72ab8a9b0ecf4e4fe49",
+  "status": "PASS",
+  "command": [
+    "experiments/verify_reference.py"
+  ],
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "torch": "2.14.1+cpu",
+  "numpy": "2.5.4",
+  "pytest": "9.1.1",
+  "device": "cpu",
+  "threads": 1,
+  "seed": 1729,
+  "performance_claim": false,
+  "production_numerical_contract_closed": false,
+  "source_sha256": {
+    "experiments/numerical_profile.py": "92fad2791f94046a593bd97561aea289ed44c702150022c5e12a1708fd101f92",
+    "experiments/verify_reference.py": "b34ac3373d42094b615a060e1854b0091673d3ee1cd9b1bd512e0eef3cff2228",
+    "reference/direct_value.py": "4b8851640a3bb1095b1179f7cb1f551fb8ea7d5252db9299a9c82238bda63703",
+    "tests/test_codec_interop.py": "06d4ff3aca1c4c217d477bb3b75f36b12c3b2495a3d08dd7b9264691931b37e3",
+    "tests/test_reference.py": "d474bd48a93da811b16ebaf7d3f76ece155d74d57d4ac8b1fb330030fada61e8",
+    "upstream/directk/quant.py": "9d59139d4b9390f2efe56f3f61cc468e733c563098eff832c2c5f28f9b77af9d",
+    "upstream/signedint4/codec.py": "483f5f1b5c8b004a1ba6ba30a50b0775fcc8350c4a3f19c76a7d3bd03a8b156b"
+  },
+  "test_return_code": 0,
+  "numerical": {
+    "rows": 96,
+    "all_finite": true,
+    "max_abs": 0.25390625,
+    "max_error_over_abs_term_envelope": 1.4079551055114656e-07
+  }
+}
