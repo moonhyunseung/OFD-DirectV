@@ -1,0 +1,11 @@
+# Frozen CPU reference profile v1
+
+This is correctness/rounding characterization, not performance. Run `python experiments/verify_reference.py` in a clean source worktree with torch, numpy and pytest. Results contain the source SHA, source hashes, environment, full test log and numerical CSV. No quantizer, layout or original history is modified.
+
+Primary geometry r=6,d=256,m=32; L=1,17,129,512; seed=1729+L; one CPU thread. Inputs are generated FP32 then cast to explicit FP64 or FP32 compute. Stored scales remain FP16. Decode-first casts stored scales and integer codes before multiplication. Offset direct uses coefficient contractions and correction; signed direct recodes bytes with XOR0x88 before signed decoding. PyTorch CPU reductions/matmul/einsum choose their reduction/FMA order; bitwise identity is not claimed. No FP16 accumulation claim is made.
+
+Cases: quantized random state, explicit nibble endpoints 0/15 (including -8), all codes8 (cancellation/zero decoded state), minimum positive FP16 scale, maximum finite FP16 scale, stored zero scale. The last is a separately identified extension to the positive-scale algebra: the frozen quantizer can underflow its FP16 scale to zero; we preserve it rather than change the quantizer. Nonfinite inputs/scales and overflow are outside this profile.
+
+Before execution, reference regression tests require FP64 rtol=atol=1e-12 on ordinary cases; exactly representable finite fixtures use integer/rational oracles where present. Those tolerances are test criteria, not a production numerical budget. All profile outputs must be finite. FP32 differences are reported without a pass/fail accuracy threshold. Production T2 therefore remains OPEN. Record max absolute error, relative L2 (undefined explicitly when reference norm is zero but error is nonzero), and error normalized by the absolute offset-term envelope. The envelope measures cancellation sensitivity; it is NOT a proved forward-error bound. Numerical closeness is not the proof of the real identity.
+
+SignedInt4's pinned codec is vendored unchanged and tested against the tensor XOR implementation over all256 bytes. Source locks record exact upstream commits and file digests. No hardware lowering or speed/residency/model claim follows.

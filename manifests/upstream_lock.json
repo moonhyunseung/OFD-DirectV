@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "dependencies": [
+    {
+      "repository": "moonhyunseung/OFD-DirectK",
+      "commit": "53efd65761a756d3e0ff059272eb57779e406d84",
+      "source_path": "reference/quant.py",
+      "vendored_path": "upstream/directk/quant.py",
+      "sha256": "9d59139d4b9390f2efe56f3f61cc468e733c563098eff832c2c5f28f9b77af9d",
+      "adaptations": []
+    },
+    {
+      "repository": "moonhyunseung/OFD-SignedInt4",
+      "commit": "39bb5a64f1c1fdb7a44b789186d3499501254f5f",
+      "source_path": "reference/codec.py",
+      "vendored_path": "upstream/signedint4/codec.py",
+      "sha256": "483f5f1b5c8b004a1ba6ba30a50b0775fcc8350c4a3f19c76a7d3bd03a8b156b",
+      "adaptations": []
+    }
+  ]
+}
